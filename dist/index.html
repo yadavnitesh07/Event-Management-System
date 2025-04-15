@@ -29,9 +29,9 @@
 
             <ul class="flex flex-col lg:flex-row gap-10 text-white font-medium text-sm md:text-base">
                 <li><a href="#" class="hover:text-blue-400 transition">Home</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">About</a></li>
+                <li><a href="#about" class="text-gray-300 hover:text-blue-400 transition">About</a></li>
                 <li><a href="#booking-form" class="text-gray-300 hover:text-blue-400 transition">Book Now</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Gallery</a></li>
+                <li><a href="#gallery" class="text-gray-300 hover:text-blue-400 transition">Gallery</a></li>
                 <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Contact</a></li>
             </ul>
 
@@ -99,7 +99,7 @@
                                 <p class="text-gray-500 text-lg">No event scheduled for this date.</p>
                                 <p class="text-green-600 font-medium">You can create your own event below.</p>
                                 <a href="#booking-form-container"
-                                  class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition mt-8">
+                                  class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition -mt-10">
                                   Book Now
                                 </a>
                               </div>
@@ -148,10 +148,40 @@
             </section>
         </main>
     </header>
+     <!--  about section -->
+     <section id="about" class="bg-black text-white py-10 px-4 md:px-10">
+        <h1 class="text-4xl font-bold text-center mb-6 hover:text-yellow-400 hover:underline transition duration-300">
+            ABOUT <span class="text-yellow-400">US</span>
+          </h1>
+          
+      
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <!-- Image Section with hover -->
+          <div class="w-full md:w-1/2 transform transition duration-300 hover:scale-105">
+            <img src="./asset/image/logo.png" alt="About Us" class="rounded-lg shadow-lg w-full h-auto object-cover" />
+          </div>
+      
+          <!-- Content Section with hover -->
+          <div class="w-full md:w-1/2 space-y-4 transform transition duration-300 hover:scale-105 hover:text-yellow-300">
+            <h3 class="text-2xl font-semibold">Turning Moments Into Memories with Ease</h3>
+            <p class="text-gray-300">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic suscipit aut molestiae deserunt magni
+              iste eligendi provident nisi, adipisci eveniet id magnam, eius debitis neque ratione assumenda, illum non!
+            </p>
+            <p class="text-gray-400">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, libero voluptates. Saepe corrupti optio
+              provident neque asperiores doloremque ex eos porro quaerat, blanditiis tempora eligendi.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      
 
-   <!-- Booking Form Section -->
+   <!-- Book now Section -->
+
 <!-- Booking Form Section -->
-<section id="booking-form" class="py-12 bg-slate-700 text-white">
+<section id="booking-form" class="py-12 bg-slate-950 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold text-center mb-8">Book Your Event Now</h2>
   
@@ -238,6 +268,78 @@
       </form>
     </div>
   </section>
+
+   <!-- gallery Section -->
+
+  <section id="gallery" class="bg-black text-white py-10">
+    <h1 class="text-4xl font-bold text-center mb-10">
+      OUR <span class="text-yellow-400">GALLERY</span>
+    </h1>
+  
+    <div class="grid gap-6 px-4 md:px-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <!-- Gallery Item -->
+      <div class="relative group overflow-hidden rounded-lg border-4 border-white">
+        <img src="./asset/image/download (1).jpeg" alt="Gallery" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0" />
+        <h3 class="absolute top-0 left-0 right-0 bg-black bg-opacity-70 text-white text-xl text-center py-2 transform -translate-y-full group-hover:translate-y-0 transition duration-500">Best Events</h3>
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-center py-2 transform translate-y-full group-hover:translate-y-0 transition duration-500">
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-heart"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-share"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-eye"></i></a>
+        </div>
+      </div>
+  
+      <!-- Repeat the block below and change only the image src -->
+      <div class="relative group overflow-hidden rounded-lg border-4 border-white">
+        <img src="./asset/image/download (2).jpeg" alt="Gallery" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0" />
+        <h3 class="absolute top-0 left-0 right-0 bg-black bg-opacity-70 text-white text-xl text-center py-2 transform -translate-y-full group-hover:translate-y-0 transition duration-500">Best Events</h3>
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-center py-2 transform translate-y-full group-hover:translate-y-0 transition duration-500">
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-heart"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-share"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-eye"></i></a>
+        </div>
+      </div>
+  
+      <div class="relative group overflow-hidden rounded-lg border-4 border-white">
+        <img src="./asset/image/download (3).jpeg" alt="Gallery" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0" />
+        <h3 class="absolute top-0 left-0 right-0 bg-black bg-opacity-70 text-white text-xl text-center py-2 transform -translate-y-full group-hover:translate-y-0 transition duration-500">Best Events</h3>
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-center py-2 transform translate-y-full group-hover:translate-y-0 transition duration-500">
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-heart"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-share"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-eye"></i></a>
+        </div>
+      </div>
+
+      <div class="relative group overflow-hidden rounded-lg border-4 border-white">
+        <img src="./asset/image/download (4).jpeg" alt="Gallery" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0" />
+        <h3 class="absolute top-0 left-0 right-0 bg-black bg-opacity-70 text-white text-xl text-center py-2 transform -translate-y-full group-hover:translate-y-0 transition duration-500">Best Events</h3>
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-center py-2 transform translate-y-full group-hover:translate-y-0 transition duration-500">
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-heart"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-share"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-eye"></i></a>
+        </div>
+      </div>
+
+      <div class="relative group overflow-hidden rounded-lg border-4 border-white">
+        <img src="./asset/image/download (5).jpeg" alt="Gallery" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0" />
+        <h3 class="absolute top-0 left-0 right-0 bg-black bg-opacity-70 text-white text-xl text-center py-2 transform -translate-y-full group-hover:translate-y-0 transition duration-500">Best Events</h3>
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-center py-2 transform translate-y-full group-hover:translate-y-0 transition duration-500">
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-heart"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-share"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-eye"></i></a>
+        </div>
+      </div>
+      <div class="relative group overflow-hidden rounded-lg border-4 border-white">
+        <img src="./asset/image/download (6).jpeg" alt="Gallery" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0" />
+        <h3 class="absolute top-0 left-0 right-0 bg-black bg-opacity-70 text-white text-xl text-center py-2 transform -translate-y-full group-hover:translate-y-0 transition duration-500">Best Events</h3>
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-center py-2 transform translate-y-full group-hover:translate-y-0 transition duration-500">
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-heart"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-share"></i></a>
+          <a href="#" class="text-white text-xl mx-2 hover:text-yellow-400"><i class="fas fa-eye"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
   
   
 

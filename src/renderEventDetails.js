@@ -13,7 +13,7 @@ export function renderEventDetails(event) {
       <p class="text-gray-400"><strong>Attendees:</strong> ${event.attendees}</p>
 
       <div class="mt-4 flex flex-wrap gap-3">
-        <a href="/book-now.html" 
+        <a href="#" 
            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition">
           Get tickets
         </a>
