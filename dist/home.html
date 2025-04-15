@@ -1,29 +1,119 @@
    
 
-    <!-- Booking Form -->
-    <div id="booking-form-container" class="hidden mt-6 bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-xl mx-auto">
-        <h3 class="text-lg font-semibold mb-4 text-white">Book Your Spot</h3>
-        <form id="booking-form" class="space-y-4 text-white">
-          <div>
-            <label class="block mb-1">Name <span class="text-red-500">*</span></label>
-            <input type="text" id="name" class="w-full p-2 rounded text-black" />
-            <p class="text-red-400 text-sm mt-1 hidden" id="name-error">Name is required.</p>
-          </div>
-          <div>
-            <label class="block mb-1">Email <span class="text-red-500">*</span></label>
-            <input type="email" id="email" class="w-full p-2 rounded text-black" />
-            <p class="text-red-400 text-sm mt-1 hidden" id="email-error">Enter a valid email.</p>
-          </div>
-          <div>
-            <label class="block mb-1">Contact Number <span class="text-red-500">*</span></label>
-            <input type="text" id="contact" class="w-full p-2 rounded text-black" />
-            <p class="text-red-400 text-sm mt-1 hidden" id="contact-error">Enter a valid 10-digit contact number.</p>
-          </div>
-          <div>
-            <label class="block mb-1">Event Details</label>
-            <textarea id="event-details" class="w-full p-2 rounded text-black" rows="3" readonly></textarea>
-          </div>
-          <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-semibold">Submit</button>
-          <p id="confirmation-message" class="text-green-400 text-sm mt-3 hidden">Booking confirmed! We'll contact you soon.</p>
-        </form>
-      </div>
+          // src/calendar.js
+          // src/calendar.js
+          import { events } from './events.js';
+          import { renderEventDetails } from './renderEventDetails.js';
+          
+          document.addEventListener('DOMContentLoaded', function () {
+            const openBtn = document.getElementById('open-calendar-btn');
+            const calendarSection = document.getElementById('calendar-section');
+            const eventContent = document.getElementById('event-content');
+          
+            const availableDates = events.map(event => event.date);
+            
+          
+            openBtn.addEventListener('click', function () {
+              calendarSection.classList.toggle('hidden');
+            });
+          
+            // src/calendar.js (add this after your DOMContentLoaded block)
+          
+          window.downloadICS = function (title, date, time) {
+              const startDateTime = new Date(`${date}T${time}`);
+              const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1-hour duration
+            
+              const pad = (n) => String(n).padStart(2, '0');
+              const formatDate = (dt) =>
+                `${dt.getUTCFullYear()}${pad(dt.getUTCMonth() + 1)}${pad(dt.getUTCDate())}T${pad(dt.getUTCHours())}${pad(dt.getUTCMinutes())}00Z`;
+            
+              const icsContent = `BEGIN:VCALENDAR
+            VERSION:2.0
+            BEGIN:VEVENT
+            SUMMARY:${title}
+            DTSTART:${formatDate(startDateTime)}
+            DTEND:${formatDate(endDateTime)}
+            DESCRIPTION:Scheduled via Event Booking App
+            LOCATION:Online
+            END:VEVENT
+            END:VCALENDAR`;
+            
+              const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.href = url;
+              link.download = `${title}.ics`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            };
+          
+           //  flatpickr initialization
+          
+            flatpickr("#event-calendar", {
+              inline: true,
+              dateFormat: "Y-m-d",
+          
+              // ✅ Allow full calendar navigation (remove strict min/max)
+              defaultDate: "2025-04-22",
+          
+               // Add static calendar size
+               static: true,
+          
+              // ✅ Don't disable any dates — we handle them via styling instead
+              disable: [],
+          
+              onDayCreate: function(dObj, dStr, fp, dayElem) {
+                const dateString = dayElem.dateObj.toLocaleDateString('sv-SE');
+          
+                // Hover styling for all days
+                dayElem.classList.add(
+                  'cursor-pointer',
+                  'hover:bg-blue-200',
+                  'transition',
+                  'duration-200',
+                  'ease-in-out' ,     
+                 
+                );
+          
+                // Styling for event types
+                if (availableDates.includes(dateString)) {
+                  // 🔴 Red for booked (event already scheduled)
+                  dayElem.classList.add('bg-red-500', 'text-white', 'rounded');
+                } else {
+                  // 🟢 Green for free (no event scheduled — user can book)
+                  dayElem.classList.add('bg-green-500', 'text-white', 'rounded');
+                }
+                
+              },
+          
+              onChange: function(selectedDates, dateStr) {
+                const event = events.find(ev => ev.date === dateStr);
+                if (event) {
+                  eventContent.innerHTML = renderEventDetails(event);
+                } else {
+                  eventContent.innerHTML = `
+                    <div class="space-y-3">
+                      <p class="text-gray-400 text-lg">No event scheduled for this date.</p>
+                      <p class="text-green-500 text-base font-medium">Create your own event by clicking the 'Book Now' button below.</p>
+                       <a href="#booking-form"
+                       onclick='showBookingForm({ date: "${dateStr}", name: "Custom Event", location: "TBD", attendees: "TBD" })'
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition">
+                        Book Now
+                      </a> 
+                    </div>
+                  `;
+                }
+          
+              }
+          
+          
+              
+              
+            });
+          });
+          
+           
+
+
+           

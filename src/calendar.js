@@ -94,7 +94,7 @@ window.downloadICS = function (title, date, time) {
           <div class="space-y-3">
             <p class="text-gray-400 text-lg">No event scheduled for this date.</p>
             <p class="text-green-500 text-base font-medium">Create your own event by clicking the 'Book Now' button below.</p>
-             <a href="#booking-form-container"
+             <a href="#booking-form"
              onclick='showBookingForm({ date: "${dateStr}", name: "Custom Event", location: "TBD", attendees: "TBD" })'
               class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition">
               Book Now

@@ -149,38 +149,97 @@
         </main>
     </header>
 
-    
-    <!-- Booking Form Section -->
-    <section id="booking-form" class="py-12 bg-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Book Your Event Now</h2>
-            <form action="#" method="POST" class="space-y-6">
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="flex-1">
-                        <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
-                        <input type="text" id="name" name="name" required
-                            class="w-full p-3 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="flex-1">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
-                        <input type="email" id="email" name="email" required
-                            class="w-full p-3 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                    <textarea id="message" name="message" rows="4" required
-                        class="w-full p-3 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit"
-                        class="bg-blue-500 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-600 transition">
-                        Submit
-                    </button>
-                </div>
-            </form>
+   <!-- Booking Form Section -->
+<!-- Booking Form Section -->
+<section id="booking-form" class="py-12 bg-slate-700 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-8">Book Your Event Now</h2>
+  
+      <!-- Confirmation Message -->
+      <div id="confirmationMessage" class="hidden text-green-400 text-center font-medium mb-4">
+        Thank you! Your event has been booked successfully.
+      </div>
+  
+      <form id="eventForm" class="space-y-6">
+        <!-- Name and Email -->
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-1 relative group">
+            <label for="name" class="block text-sm font-medium">Your Name</label>
+            <input type="text" id="name" name="name" required
+              class="w-full p-3 mt-1 border border-gray-300 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your name" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="nameError">Name is required.</p>
+            <span class="absolute top-0 right-2 text-gray-300 text-sm hidden group-hover:block">Enter your full name</span>
+          </div>
+          <div class="flex-1 relative group">
+            <label for="email" class="block text-sm font-medium">Your Email</label>
+            <input type="email" id="email" name="email" required
+              class="w-full p-3 mt-1 border border-gray-300 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your email" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="emailError">Please enter a valid email.</p>
+            <span class="absolute top-0 right-2 text-gray-300 text-sm hidden group-hover:block">Use a valid email</span>
+          </div>
         </div>
-    </section>
+  
+        <!-- Contact and Location -->
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-1 relative group">
+            <label for="contact" class="block text-sm font-medium">Contact Number</label>
+            <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}"
+              class="w-full p-3 mt-1 border border-gray-300 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="10-digit number" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="contactError">Enter a valid 10-digit number.</p>
+            <span class="absolute top-0 right-2 text-gray-300 text-sm hidden group-hover:block">E.g. 9876543210</span>
+          </div>
+          <div class="flex-1 relative group">
+            <label for="event-location" class="block text-sm font-medium">Event Location</label>
+            <input type="text" id="event-location" name="event-location" required
+              class="w-full p-3 mt-1 border border-gray-300 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Location" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="locationError">Add location.</p>
+            <span class="absolute top-0 right-2 text-gray-300 text-sm hidden group-hover:block">Location</span>
+          </div>
+        </div>
+  
+        <!-- Event Details -->
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-1 relative group">
+            <label for="event-type" class="block text-sm font-medium">Event Type</label>
+            <input type="text" id="event-type" name="event-type" required
+              class="w-full p-3 mt-1 border border-gray-300 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g., Wedding, Conference" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="typeError">Event type is required.</p>
+          </div>
+          <div class="flex-1 relative group">
+            <label for="attendees" class="block text-sm font-medium">Number of Attendees</label>
+            <input type="number" id="attendees" name="attendees" min="1" required
+              class="w-full p-3 mt-1 border border-gray-300 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g., 100" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="attendeesError">Please enter number of attendees.</p>
+          </div>
+        </div>
+  
+        <!-- Description -->
+        <div class="flex flex-col relative group">
+          <label for="description" class="block text-sm font-medium">Description</label>
+          <textarea id="description" name="description" rows="4" required
+            class="w-full p-3 mt-1 border border-gray-300 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Describe your event..."></textarea>
+          <p class="text-red-400 text-sm mt-1 hidden" id="descError">Please provide a description.</p>
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit"
+            class="bg-blue-500 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-600 transition">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  
 
 
     <!--  Logos -->
@@ -205,6 +264,7 @@
 
 
     <script type="module" src="../src/calendar.js"></script>
+    <script type="module" src="../src/bookingForm.js"></script>
 
 </body>
 
