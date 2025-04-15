@@ -1,0 +1,29 @@
+   
+
+    <!-- Booking Form -->
+    <div id="booking-form-container" class="hidden mt-6 bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-xl mx-auto">
+        <h3 class="text-lg font-semibold mb-4 text-white">Book Your Spot</h3>
+        <form id="booking-form" class="space-y-4 text-white">
+          <div>
+            <label class="block mb-1">Name <span class="text-red-500">*</span></label>
+            <input type="text" id="name" class="w-full p-2 rounded text-black" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="name-error">Name is required.</p>
+          </div>
+          <div>
+            <label class="block mb-1">Email <span class="text-red-500">*</span></label>
+            <input type="email" id="email" class="w-full p-2 rounded text-black" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="email-error">Enter a valid email.</p>
+          </div>
+          <div>
+            <label class="block mb-1">Contact Number <span class="text-red-500">*</span></label>
+            <input type="text" id="contact" class="w-full p-2 rounded text-black" />
+            <p class="text-red-400 text-sm mt-1 hidden" id="contact-error">Enter a valid 10-digit contact number.</p>
+          </div>
+          <div>
+            <label class="block mb-1">Event Details</label>
+            <textarea id="event-details" class="w-full p-2 rounded text-black" rows="3" readonly></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-semibold">Submit</button>
+          <p id="confirmation-message" class="text-green-400 text-sm mt-3 hidden">Booking confirmed! We'll contact you soon.</p>
+        </form>
+      </div>
